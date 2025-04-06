@@ -2,7 +2,7 @@ import json
 import requests
 import csv
 from datetime import datetime
-import os  # Needed to check if the CSV file exists
+import os
 import streamlit as st
 
 # --- Agent 1: Configuration Loader ---
@@ -22,7 +22,7 @@ def load_config(config_path="config.json"):
                 raise ValueError("API key missing or not set in config.json / secrets")
         print("[ConfigAgent] Configuration loaded successfully.")
         # Basic validation
-        if "api_key" not in config or not config["api_key"] or config["api_key"] == "YOUR_OPENWEATHERMAP_API_KEY":
+        if "api_key" not in config or not config["api_key"] or config["api_key"] == "OPENWEATHERMAP_API_KEY":
              raise ValueError("API key missing or not set in config.json")
         if "location" not in config or "latitude" not in config["location"] or "longitude" not in config["location"]:
              raise ValueError("Location coordinates missing in config.json")
