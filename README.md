@@ -66,6 +66,4 @@ Data flows sequentially through the pipeline.
     - *csv*: For simple file storage.
 
 
-2. Free APIs:
-
-- **OpenWeatherMap** (needs free API key signup)
+2. **OpenWeatherMap** (needs free API key signup)
