@@ -6,21 +6,24 @@ Create a pipeline that fetches current air quality and weather data for a specif
 
 ## Agentic Structure
 
-A sequence of specialized functions (our "agents") passing data along.
+A sequence of specialized functions ("agents") passing data along.
+
 It follows a defined pipeline structure (Config -> Fetch AQI -> Fetch Weather -> Store -> Analyze -> Report).
+
 Each function/step has a distinct, specialized role, acting like a simple agent.
+
 Data flows sequentially through the pipeline.
 
 
 # Pipeline Steps & "Agents"
 
-- *ConfigAgent* (Configuration Loader):
+- `ConfigAgent` (Configuration Loader):
     
     **Task**: Reads configuration settings (e.g., target city/coordinates, AQI threshold, temperature threshold) potentially from a simple config.json file or directly in the script.
     
     **Output**: Configuration dictionary.
 
-- *AQIAgent* (Air Quality Fetcher):
+- `AQIAgent` (Air Quality Fetcher):
 
     **Task**: Takes location coordinates from ConfigAgent. Uses a free API like the OpenWeatherMap Air Pollution API (requires free API key) or OpenAQ API to get the current Air Quality Index (AQI) and pollutant levels (PM2.5, O3, etc.).
     
@@ -28,7 +31,7 @@ Data flows sequentially through the pipeline.
     
     **Output**: Dictionary with AQI data and timestamp.
 
-- *WeatherAgent* (Weather Fetcher):
+- `WeatherAgent` (Weather Fetcher):
 
     **Task**: Takes location coordinates from ConfigAgent. Uses a free API like OpenWeatherMap Current Weather API (uses the same free API key as above) or Open-Meteo (no key needed, very generous free tier) to get current temperature, humidity, wind speed.
     
@@ -36,7 +39,7 @@ Data flows sequentially through the pipeline.
     
     **Output**: Dictionary with weather data and timestamp.
 
-- *AnalysisAgent* (Condition Checker):
+- `AnalysisAgent` (Condition Checker):
 
     **Task**: Takes the latest AQI and weather data (either directly or by querying the last entry from the DB/CSV). Compares values against the thresholds defined in the config (e.g., if aqi > 100 and temperature > 30:).
     
@@ -44,7 +47,7 @@ Data flows sequentially through the pipeline.
     
     **Output**: Boolean flag (alert needed?) and a descriptive message.
 
-- *ReportingAgent* (Notifier):
+- `ReportingAgent` (Notifier):
     
     **Task**: Takes the output from AnalysisAgent. If an alert is needed, print a clear message to the console (e.g., "ALERT: Poor Air Quality (AQI: 110) and High Temperature (32°C) detected in [City Name]!").
     
@@ -85,7 +88,7 @@ Data flows sequentially through the pipeline.
 
 or
 
-**B.**
+**B. Using Streamlit**
 
 - Open your terminal or command prompt.
 
