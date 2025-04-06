@@ -77,11 +77,11 @@ Data flows sequentially through the pipeline.
 
 - Open your terminal or command prompt.
 
-- Navigate (*cd*) into the *climate_pipeline* folder where you saved the files.
+- Navigate (`cd`) into the *climate_pipeline* folder where you saved the files.
 
-- Make sure your *config.json* is updated with your API key and desired location/thresholds.
+- Make sure your `config.json` is updated with your API key and desired location/thresholds.
 
-- Run the script using: *python climate_agent.py*
+- Run the script using: `python climate_agent.py`
 
 or
 
@@ -89,11 +89,11 @@ or
 
 - Open your terminal or command prompt.
 
-- Navigate (*cd*) into the *climate_pipeline* folder where you saved the files.
+- Navigate (`cd`) into the *climate_pipeline* folder where you saved the files.
 
-- Make sure your *config.json* is updated with your API key and desired location/thresholds.
+- Make sure your `config.json` is updated with your API key and desired location/thresholds.
 
-- Run the script using: *streamlit run app.py*
+- Run the script using: `streamlit run app.py`
 
 
 # Expected Output
@@ -124,7 +124,7 @@ You will see output in your terminal showing the progress of each agent:
 
 If the thresholds are met, the Analysis Result message will change accordingly.
 
-A climate_data_log.csv file will also be created (or appended to) in the same folder, containing the collected data.
+A `climate_data_log.csv` file will also be created (or appended to) in the same folder, containing the collected data.
 
 
 # Next Steps & Possible Improvements
