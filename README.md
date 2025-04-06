@@ -1,6 +1,7 @@
 # Local Air Quality & Weather Correlator Agent
 
 ## Goal
+
 Create a pipeline that fetches current air quality and weather data for a specific location, stores it, and checks if conditions exceed predefined thresholds (e.g., poor air quality combined with high temperature).
 
 ## Agentic Structure
@@ -51,6 +52,7 @@ Data flows sequentially through the pipeline.
 
     **Output**: Prints message to console.
 
+
 ## Key Technologies:
 
 1. **Python**
@@ -67,3 +69,68 @@ Data flows sequentially through the pipeline.
 
 
 2. **OpenWeatherMap** (needs free API key signup)
+
+
+# How to Run it
+
+**A.** 
+
+- Open your terminal or command prompt.
+
+- Navigate (*cd*) into the *climate_pipeline* folder where you saved the files.
+
+- Make sure your *config.json* is updated with your API key and desired location/thresholds.
+
+- Run the script using: *python climate_agent.py*
+
+or
+
+**B.**
+
+- Open your terminal or command prompt.
+
+- Navigate (*cd*) into the *climate_pipeline* folder where you saved the files.
+
+- Make sure your *config.json* is updated with your API key and desired location/thresholds.
+
+- Run the script using: *streamlit run app.py*
+
+
+# Expected Output
+
+You will see output in your terminal showing the progress of each agent:
+
+======= Starting Climate Data Pipeline =======
+[ConfigAgent] Loading configuration...
+[ConfigAgent] Configuration loaded successfully.
+[AQIAgent] Fetching air quality data...
+[AQIAgent] Air Quality Index (AQI): 1
+[WeatherAgent] Fetching weather data...
+[WeatherAgent] Current Temperature: 5.51°C, Description: overcast clouds
+[StorageAgent] Storing data...
+[StorageAgent] Data appended successfully to climate_data_log.csv
+[AnalysisAgent] Analyzing conditions...
+[AnalysisAgent] Analysis complete. Alert needed: False
+Running climate_agent.py directly (output uses prints within functions)...
+[ConfigAgent] Loading configuration...
+[ConfigAgent] Configuration loaded successfully.
+======= Pipeline Run Finished =======
+
+If your thresholds are met, the Analysis Result message will change accordingly.
+
+A climate_data_log.csv file will also be created (or appended to) in the same folder, containing the collected data.
+
+
+# Next Steps & Possible Improvements
+
+* Error Handling: Add more robust error handling for network issues, API rate limits, or unexpected data formats.
+
+* Scheduling: Use cron (Linux/macOS) or Task Scheduler (Windows) to run this script automatically (e.g., every hour).
+
+* More Complex Analysis: Calculate moving averages, detect trends, or correlate specific pollutants with weather patterns.
+
+* Notifications: Instead of just printing, use libraries like smtplib (email) or APIs for Slack/Discord/etc. to send alerts.
+
+* Visualization: Use libraries like matplotlib or seaborn to plot the data stored in the CSV/database.
+
+* Multiple Locations: Modify the config and agents to handle monitoring several locations.
