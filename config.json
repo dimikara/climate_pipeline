@@ -1,0 +1,15 @@
+{
+    "api_key": "OPENWEATHERMAP_API_KEY",
+    "location": {
+      "city_name": "Thessaloniki, Greece",
+      "latitude": 40.634781,
+      "longitude": 22.943090
+    },
+    "thresholds": {
+      "aqi_alert": 3, 
+      "temp_alert_celsius": 28.0 
+    },
+    "storage": {
+      "csv_filename": "climate_data_log.csv"
+    }
+  }
